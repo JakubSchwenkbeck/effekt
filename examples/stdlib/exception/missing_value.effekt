@@ -1,0 +1,18 @@
+module examples/pos/exception/missing_value
+
+import exception
+
+def main() = {
+  testMissingValue()
+}
+
+def testMissingValue(): Unit ={
+  try {
+    missingValue()
+  } with Exception[MissingValue] {
+    def raise(exception: MissingValue, msg: String) = {
+      println(msg) // Missing value.
+    }
+  }
+
+}
