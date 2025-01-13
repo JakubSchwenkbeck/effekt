@@ -1,0 +1,15 @@
+module examples/pos/exception/out_of_bounds
+
+import exception
+
+def main() = {
+  testOutOfBounds()
+}
+
+def testOutOfBounds(): Unit =
+  try {
+    do raise(OutOfBounds(), "Index out of bounds")
+  } with Exception[OutOfBounds] {
+    def raise(exception: OutOfBounds, msg: String) =
+      println(msg) // Index out of bounds.
+  }
